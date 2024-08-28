@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
-import Navbar from "./views/navbar/Navbar";
-import { menuItemsModel } from "./shared/types";
+import Navbar from "./components/Navbar";
+import Home from "./sections/Home";
+
+export type menuItemsModel = {
+  page: string;
+};
 
 const menuItems: menuItemsModel[] = [
   {
@@ -46,6 +50,8 @@ function App() {
         menuItems={menuItems}
         isTopOfPage={isTopOfPage}
       />
+
+      <Home page={menuItems[0].page} setSelectedPage={setSelectedPage} />
     </div>
   );
 }

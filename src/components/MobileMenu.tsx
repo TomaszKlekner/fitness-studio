@@ -1,6 +1,6 @@
 import { XMarkIcon } from "@heroicons/react/24/solid";
-import { menuItemsModel } from "../shared/types";
 import Link from "./Link";
+import { menuItemsModel } from "../App";
 
 interface Props {
   menuItems: menuItemsModel[];
