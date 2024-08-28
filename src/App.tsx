@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./sections/Home";
+import Benefits from "./sections/Benefits";
 
 export type menuItemsModel = {
   page: string;
@@ -51,7 +52,15 @@ function App() {
         isTopOfPage={isTopOfPage}
       />
 
-      <Home page={menuItems[0].page} setSelectedPage={setSelectedPage} />
+      <Home
+        page={menuItems[0].page.toLocaleLowerCase()}
+        setSelectedPage={setSelectedPage}
+      />
+
+      <Benefits
+        page={menuItems[1].page.toLocaleLowerCase()}
+        setSelectedPage={setSelectedPage}
+      />
     </div>
   );
 }

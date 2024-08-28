@@ -17,9 +17,9 @@ const Home = ({ page, setSelectedPage }: Props) => {
   const isAboveMediumScreen = useMediaQuery("(min-width: 1060px)");
 
   return (
-    <section id={page} className="gap-16 bg-gray-20 py-10 md:h-full md:pb-0">
+    <section id={page} className="gap-16 py-10 sm:h-full md:pb-0">
       <motion.div
-        className="mx-auto w-5/6 items-center justify-center md:flex md:h-5/6"
+        className="mx-auto w-5/6 items-center justify-center bg-gray-20 md:flex md:h-5/6"
         onViewportEnter={() => setSelectedPage(page)}
       >
         <div className="z-10 mt-32 md:basis-3/5">
@@ -51,7 +51,7 @@ const Home = ({ page, setSelectedPage }: Props) => {
           </motion.div>
 
           <motion.div
-            className="mt-8 flex items-center gap-8 md:justify-start"
+            className="mt-8 flex items-center gap-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -64,7 +64,9 @@ const Home = ({ page, setSelectedPage }: Props) => {
               },
             }}
           >
-            <ActionButton page="Join Now" setSelectedPage={setSelectedPage} />
+            <ActionButton page="Join Now" setSelectedPage={setSelectedPage}>
+              Join Now
+            </ActionButton>
             <AnchorLink
               className="text-sm font-bold text-primary-500 underline hover:text-secondary-500"
               onClick={() => setSelectedPage(page)}
@@ -83,7 +85,7 @@ const Home = ({ page, setSelectedPage }: Props) => {
       {isAboveMediumScreen && (
         <div className="h-[150px] w-full bg-primary-100 py-10">
           <div className="mx-auto w-5/6">
-            <div className="ali flex w-3/5 items-center justify-between gap-5">
+            <div className="flex w-3/5 items-center justify-between gap-8">
               <img src={SponsorForbes} alt="Forbes" />
               <img src={SponsorFortune} alt="Fortune" />
               <img src={SponsorRedBull} alt="Red Bull" />
