@@ -2,12 +2,18 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import { toLowerCasePageName } from "../helpers/helpers";
 
 type Props = {
+  children?: React.ReactNode;
   page: string;
   selectedPage: string;
   setSelectedPage: (value: string) => void;
 };
 
-function Link({ page, selectedPage, setSelectedPage }: Readonly<Props>) {
+function Link({
+  children,
+  page,
+  selectedPage,
+  setSelectedPage,
+}: Readonly<Props>) {
   const lowerCasePage = toLowerCasePageName(page);
   return (
     <AnchorLink
@@ -17,7 +23,7 @@ function Link({ page, selectedPage, setSelectedPage }: Readonly<Props>) {
         setSelectedPage(lowerCasePage);
       }}
     >
-      {page}
+      {children ?? page}
     </AnchorLink>
   );
 }

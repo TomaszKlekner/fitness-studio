@@ -28,55 +28,61 @@ const Navbar = ({
   const [isMenuToggled, setIsMenuToggled] = useState(false);
 
   return (
-    <>
-      <nav
-        className={`${navbarBackgound} ${flexBetween} fixed top-0 w-full py-6`}
-      >
-        <div className={`${flexBetween} mx-auto w-5/6`}>
-          <div className={`${flexBetween} w-full gap-16`}>
+    <nav
+      className={`${navbarBackgound} ${flexBetween} fixed top-0 z-50 w-full py-6`}
+    >
+      <div className={`${flexBetween} mx-auto w-5/6`}>
+        <div className={`${flexBetween} w-full gap-16`}>
+          <Link
+            page="home"
+            selectedPage="home"
+            setSelectedPage={setSelectedPage}
+          >
             <img src={Logo} alt={title} />
+          </Link>
 
-            {isAboveMediumScreen ? (
-              <div className={`${flexBetween} w-full`}>
-                <div className={`${flexBetween} gap-8 text-sm`}>
-                  {menuItems.map((menuItem) => (
-                    <Link
-                      key={menuItem.page}
-                      page={menuItem.page}
-                      selectedPage={selectedPage}
-                      setSelectedPage={setSelectedPage}
-                    />
-                  ))}
-                </div>
-                <div className={`${flexBetween} gap-8`}>
-                  <p>Sign In</p>
-                  <ActionButton
-                    page="Become A Member"
+          {isAboveMediumScreen ? (
+            <div className={`${flexBetween} w-full`}>
+              <div className={`${flexBetween} gap-8 text-sm`}>
+                {menuItems.map((menuItem) => (
+                  <Link
+                    key={menuItem.page}
+                    page={menuItem.page}
+                    selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                   />
-                </div>
+                ))}
               </div>
-            ) : (
-              <button
-                className="z-40 rounded-full bg-secondary-500 p-2"
-                onClick={() => setIsMenuToggled(!isMenuToggled)}
-              >
-                <Bars3Icon className="h-6 w-6 text-white" />
-              </button>
-            )}
-          </div>
+              <div className={`${flexBetween} gap-8`}>
+                <p>Sign In</p>
+                <ActionButton
+                  page="Become A Member"
+                  setSelectedPage={setSelectedPage}
+                >
+                  Become A Member
+                </ActionButton>
+              </div>
+            </div>
+          ) : (
+            <button
+              className="z-40 rounded-full bg-secondary-500 p-2"
+              onClick={() => setIsMenuToggled(!isMenuToggled)}
+            >
+              <Bars3Icon className="h-6 w-6 text-white" />
+            </button>
+          )}
         </div>
+      </div>
 
-        {!isAboveMediumScreen && isMenuToggled && (
-          <MobileMenu
-            setIsMenuToggled={setIsMenuToggled}
-            menuItems={menuItems}
-            selectedPage={selectedPage}
-            setSelectedPage={setSelectedPage}
-          />
-        )}
-      </nav>
-    </>
+      {!isAboveMediumScreen && isMenuToggled && (
+        <MobileMenu
+          setIsMenuToggled={setIsMenuToggled}
+          menuItems={menuItems}
+          selectedPage={selectedPage}
+          setSelectedPage={setSelectedPage}
+        />
+      )}
+    </nav>
   );
 };
 
