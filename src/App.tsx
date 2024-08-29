@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Home from "./sections/Home";
 import Benefits from "./sections/Benefits";
 import Classes from "./sections/Classes";
+import ContacUs from "./sections/ContacUs";
 
 export type menuItemsModel = {
   page: string;
@@ -58,6 +59,8 @@ function App() {
       <Benefits page={menuItems[1].page} setSelectedPage={setSelectedPage} />
 
       <Classes page={menuItems[2].page} setSelectedPage={setSelectedPage} />
+
+      <ContacUs page={menuItems[3].page} setSelectedPage={setSelectedPage} />
     </div>
   );
 }
