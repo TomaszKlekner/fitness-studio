@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./sections/Home";
 import Benefits from "./sections/Benefits";
+import Classes from "./sections/Classes";
 
 export type menuItemsModel = {
   page: string;
@@ -59,6 +60,11 @@ function App() {
 
       <Benefits
         page={menuItems[1].page.toLocaleLowerCase()}
+        setSelectedPage={setSelectedPage}
+      />
+
+      <Classes
+        page={menuItems[2].page.toLocaleLowerCase()}
         setSelectedPage={setSelectedPage}
       />
     </div>
