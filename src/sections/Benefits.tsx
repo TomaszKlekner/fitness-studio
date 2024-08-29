@@ -9,6 +9,7 @@ import React from "react";
 import BenefitElement from "../components/BenefitElement";
 import ActionButton from "../components/ActionButton";
 import BenefitsPageGraphic from "../assets/BenefitsPageGraphic.png";
+import { toLowerCasePageName } from "../helpers/helpers";
 
 export type benefitModel = {
   Icon: React.ElementType;
@@ -59,7 +60,10 @@ const container = {
 
 const Benefits = ({ page, setSelectedPage }: Props) => {
   return (
-    <section id={page} className="mx-auto min-h-full w-5/6 py-20">
+    <section
+      id={toLowerCasePageName(page)}
+      className="mx-auto min-h-full w-5/6 py-20"
+    >
       <motion.div onViewportEnter={() => setSelectedPage(page)}>
         <motion.div
           className="md:my-5 md:w-3/5"

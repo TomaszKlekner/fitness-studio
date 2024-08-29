@@ -7,6 +7,7 @@ import SponsorForbes from "../assets/SponsorForbes.png";
 import SponsorFortune from "../assets/SponsorFortune.png";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { motion } from "framer-motion";
+import { toLowerCasePageName } from "../helpers/helpers";
 
 type Props = {
   page: string;
@@ -17,7 +18,10 @@ const Home = ({ page, setSelectedPage }: Props) => {
   const isAboveMediumScreen = useMediaQuery("(min-width: 1060px)");
 
   return (
-    <section id={page} className="gap-16 py-10 sm:h-full md:pb-0">
+    <section
+      id={toLowerCasePageName(page)}
+      className="gap-16 py-10 sm:h-full md:pb-0"
+    >
       <motion.div
         className="mx-auto w-5/6 items-center justify-center bg-gray-20 md:flex md:h-5/6"
         onViewportEnter={() => setSelectedPage(page)}

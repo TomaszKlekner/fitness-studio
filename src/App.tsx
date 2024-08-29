@@ -53,20 +53,11 @@ function App() {
         isTopOfPage={isTopOfPage}
       />
 
-      <Home
-        page={menuItems[0].page.toLocaleLowerCase()}
-        setSelectedPage={setSelectedPage}
-      />
+      <Home page={menuItems[0].page} setSelectedPage={setSelectedPage} />
 
-      <Benefits
-        page={menuItems[1].page.toLocaleLowerCase()}
-        setSelectedPage={setSelectedPage}
-      />
+      <Benefits page={menuItems[1].page} setSelectedPage={setSelectedPage} />
 
-      <Classes
-        page={menuItems[2].page.toLocaleLowerCase()}
-        setSelectedPage={setSelectedPage}
-      />
+      <Classes page={menuItems[2].page} setSelectedPage={setSelectedPage} />
     </div>
   );
 }

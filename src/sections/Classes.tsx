@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 import image1 from "../assets/image1.png";
 import image2 from "../assets/image2.png";
 import image3 from "../assets/image3.png";
@@ -8,6 +6,8 @@ import image5 from "../assets/image5.png";
 import image6 from "../assets/image6.png";
 import HeaderText from "../components/HeaderText";
 import Class from "../components/Class";
+import { toLowerCasePageName } from "../helpers/helpers";
+import { motion } from "framer-motion";
 
 export type ClassType = {
   name: string;
@@ -57,7 +57,10 @@ type Props = {
 
 const Classes = ({ page, setSelectedPage }: Props) => {
   return (
-    <section id={page} className="w-full bg-primary-100 py-40">
+    <section
+      id={toLowerCasePageName(page)}
+      className="w-full bg-primary-100 py-40"
+    >
       <motion.div onViewportEnter={() => setSelectedPage(page)}>
         <motion.div
           className="mx-auto w-5/6"
@@ -85,7 +88,7 @@ const Classes = ({ page, setSelectedPage }: Props) => {
         </motion.div>
 
         <div className="mt-10 h-[353px] w-full overflow-x-auto overflow-y-hidden">
-          <ul className="w-[2800px] whitespace-nowrap">
+          <ul className="flex w-[2800px] whitespace-nowrap">
             {classes.map((c) => (
               <Class key={c.name} singleClass={c} />
             ))}
