@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import HeaderText from "../components/HeaderText";
 
 import ContactUsPageGraphic from "../assets/ContactUsPageGraphic.png";
+import { useEffect } from "react";
 
 type Props = { page: string; setSelectedPage: (value: string) => void };
 
@@ -13,7 +14,8 @@ const ContacUs = ({ page, setSelectedPage }: Props) => {
   const {
     register,
     trigger,
-    formState: { errors },
+    reset,
+    formState: { errors, isSubmitSuccessful },
   } = useForm();
 
   const onsubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -23,6 +25,10 @@ const ContacUs = ({ page, setSelectedPage }: Props) => {
       e.preventDefault();
     }
   };
+
+  useEffect(() => {
+    reset();
+  }, [reset, isSubmitSuccessful]);
 
   return (
     <section
