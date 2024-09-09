@@ -4,6 +4,7 @@ import Home from "./sections/Home";
 import Benefits from "./sections/Benefits";
 import Classes from "./sections/Classes";
 import ContacUs from "./sections/ContacUs";
+import Footer from "./sections/Footer";
 
 export type menuItemsModel = {
   page: string;
@@ -61,6 +62,8 @@ function App() {
       <Classes page={menuItems[2].page} setSelectedPage={setSelectedPage} />
 
       <ContacUs page={menuItems[3].page} setSelectedPage={setSelectedPage} />
+
+      <Footer />
     </div>
   );
 }
